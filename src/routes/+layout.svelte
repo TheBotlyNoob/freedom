@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Nav from "$lib/Nav.svelte"
 	import Sidebar from "$lib/Sidebar.svelte"
-	import { page } from '$app/stores';
+	import { page } from "$app/stores"
 	import { dev } from "$app/environment" // it is used, but TypeScript doesn't know that for some reason
 	import Error from "$lib/tRPC/ClientError.svelte"
 
@@ -35,18 +35,18 @@
 	</style>
 </svelte:head>
 
-{#if $page.routeId?.startsWith('/login')}
-	<div class="accountsRoot">
+{#if $page.routeId?.startsWith("/login")}
+	<div class="root accountsRoot">
 		<Sidebar />
-		<main class="accounts">
+		<main class="app accounts">
 			<Error />
 			<slot />
 		</main>
 	</div>
-{:else if $page.routeId?.startsWith('/signup')}
-	<div class="accountsRoot">
+{:else if $page.routeId?.startsWith("/signup")}
+	<div class="root accountsRoot">
 		<Sidebar />
-		<main class="accounts">
+		<main class="app accounts">
 			<Error />
 			<slot />
 		</main>
@@ -73,14 +73,7 @@
 		overflow-x: hidden;
 	}
 	div.accountsRoot {
-		display: flex;
 		flex-direction: row;
-		align-items: center;
-		gap: 5px;
-		width: 100vw;
-		height: 100vh;
-		background: #292929;
-		overflow-x: hidden;
 	}
 	main.app {
 		width: 100vw;
@@ -92,11 +85,6 @@
 	}
 	main.accounts {
 		width: calc(100vw - 650px);
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
 		justify-content: center;
-		color: white;
 	}
 </style>
